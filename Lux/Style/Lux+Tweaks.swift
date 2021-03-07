@@ -152,6 +152,7 @@ extension Lux.Tweak {
             mutation.colorOverride = nil
             mutation.colorPriority = .tertiary
             return mutation
+            
 
         case .activeColor:
             mutation.surface = .active
@@ -218,6 +219,8 @@ extension Lux.Tweak {
         case .activeSurface:
             mutation.surface = .active
             return mutation
+            
+        
 
         case .complementarySurface:
             switch mutation.surface {
@@ -274,9 +277,11 @@ extension Lux.Tweak {
                 mutation.colorPriority = .primary
             }
             return mutation
-
+        
+        
         case .complementary:
             return mutation.tweak(.complementaryFont, .complementaryLayout, .complementaryColor)
+        
 
         case .elevationNormal:
             mutation.elevation = .normal
@@ -309,7 +314,17 @@ extension Lux.Tweak {
         case .elevationBelow3x:
             mutation.elevation = .below3x
             return mutation
-
+            
+        default:
+            // There is a compilation bug on Xcode12 if the swit case is too long
+            return _apply_continue_(to: trait)
+        }
+    }
+    
+    /// There is a compilation bug on Xcode12 if the swit case is too long
+    func _apply_continue_(to trait: Trait) -> Trait {
+        var mutation = trait
+        switch self {
         case .elevationBottom:
             mutation.elevation = .shadow
             return mutation
@@ -437,6 +452,11 @@ extension Lux.Tweak {
         case .defaultSpec:
             mutation.preferredColorScheme = nil
             return mutation
+            
+        default:
+            return trait
+        
         }
+        
     }
 }
