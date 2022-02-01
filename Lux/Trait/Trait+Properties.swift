@@ -95,7 +95,11 @@ public extension Trait {
             return preferredFont
         }
 
-        return Font(fontType)
+        if #available(iOS 14.0, *) {
+            return Font.custom(fontType.fontName, fixedSize: fontType.pointSize)
+        } else {
+            return Font(fontType)
+        }
     }
 
     var fontType: UIFont {
