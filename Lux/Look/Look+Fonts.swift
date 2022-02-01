@@ -29,14 +29,14 @@ public extension Look {
             preferred ?? .primary
         }
 
-        public var largeTitleSize: CGFloat { Font.textSize(.largeTitle) }
-        public var titleSize: CGFloat { Font.textSize(.title1) }
-        public var headlineSize: CGFloat { Font.textSize(.headline) }
-        public var subheadlineSize: CGFloat { Font.textSize(.subheadline) }
-        public var bodySize: CGFloat { Font.textSize(.body) }
-        public var calloutSize: CGFloat { Font.textSize(.callout) }
-        public var footnoteSize: CGFloat { Font.textSize(.footnote) }
-        public var captionSize: CGFloat { Font.textSize(.caption1) }
+        public var largeTitleSize: CGFloat { 44 }
+        public var titleSize: CGFloat { 38 }
+        public var headlineSize: CGFloat { 28 }
+        public var subheadlineSize: CGFloat { 25 }
+        public var bodySize: CGFloat { 28 }
+        public var calloutSize: CGFloat { 26 }
+        public var footnoteSize: CGFloat { 23 }
+        public var captionSize: CGFloat { 22 }
 
         public var largeTitle: Font { Font(largeTitleUIFont) }
         public var title: Font { Font(titleUIFont) }
