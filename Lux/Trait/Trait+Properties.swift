@@ -96,7 +96,7 @@ public extension Trait {
         }
 
         if #available(iOS 14.0, *) {
-            return Font.custom(fontType.fontName, fixedSize: 12)
+            return Font.custom(fontType.fontName, fixedSize: fontType.pointSize)
         } else {
             return Font(fontType)
         }
